@@ -112,33 +112,36 @@ sap.ui.define([
 				var conditionTable = this.getView().byId("Table");
 				var sPath = jQuery.sap.getModulePath("com.ingles.retail_pricing.ad_group.AD_Group", "/test/data/data.json");
 				var attModel = new JSONModel(sPath);
-				attModel.setDefaultBindingMode("OneWay");
+				// attModel.setDefaultBindingMode("OneWay");
 				this.getView().setModel(attModel);
 				conditionTable.bindRows("/Data");
 				this.onPress();
 				var that = this;
-			setTimeout(function () {
-				that.firstcalculate();
-			}, 1000);
+				setTimeout(function () {
+					that.firstcalculate();
+				}, 1000);
 			}
 		},
 		firstcalculate: function () {
 			var oTable = this.getView().byId("Table");
 			var oRows = oTable.getRows(),
-				cost, retailprice, calculated, finalcal;
+				cost, allow, retailprice, calculated, gm, gmallow;
 			for (var i = 0; i < oRows.length; i++) {
 				cost = oRows[i].getCells()[4].getText();
+				allow = oRows[i].getCells()[5].getText();
 				retailprice = oRows[i].getCells()[8].getItems()[0].getValue();
 
 				calculated = ((parseFloat(retailprice, 2) - parseFloat(cost, 2)) / parseFloat(retailprice, 2)) * 100;
-				finalcal = calculated.toFixed(2);
+				gm = isNaN(calculated)?0:calculated.toFixed(2);
+				calculated = ((parseFloat(retailprice, 2) - parseFloat(cost, 2) + parseFloat(allow, 2)) / parseFloat(retailprice, 2)) * 100;
+				gmallow = isNaN(calculated)?0:calculated.toFixed(2);				
 				var check = oRows[i].getCells()[0].getItems()[1].getValue();
 				if (check === "") {
 					oRows[i].getCells()[9].setText("");
 					oRows[i].getCells()[10].setText("");
 				} else {
-					oRows[i].getCells()[9].setText(finalcal);
-					oRows[i].getCells()[10].setText(finalcal);
+					oRows[i].getCells()[9].setText(gm);
+					oRows[i].getCells()[10].setText(gmallow);
 				}
 
 			}
@@ -252,13 +255,16 @@ sap.ui.define([
 		calculate: function (row, oTable) {
 			var oRows = oTable.getRows();
 			var cost = oRows[row].getCells()[4].getText();
+			var allow = oRows[row].getCells()[5].getText();
 			var retailprice = oRows[row].getCells()[8].getItems()[0].getValue();
 
 			var calculated = ((parseFloat(retailprice, 2) - parseFloat(cost, 2)) / parseFloat(retailprice, 2)) * 100;
-			var finalcal = calculated.toFixed(2);
+			var gm = isNaN(calculated) ? 0 : calculated.toFixed(2);
+			calculated = ((parseFloat(retailprice, 2) - parseFloat(cost, 2) + parseFloat(allow, 2)) / parseFloat(retailprice, 2)) * 100;
+			var gmallow = calculated.toFixed(2);
 			if (oTable.getRows()[0].getCells()[0].getItems()[1].getValue() !== "") {
-				oTable.getRows()[row].getCells()[9].setText(finalcal);
-				oTable.getRows()[row].getCells()[10].setText(finalcal);
+				oTable.getRows()[row].getCells()[9].setText(gm);
+				oTable.getRows()[row].getCells()[10].setText(gmallow);
 			}
 
 		},
@@ -267,11 +273,14 @@ sap.ui.define([
 			var row = oEvent.getSource().getParent().getParent().getBindingContext().getPath().slice(6);
 			var oRows = oTable.getRows();
 			var cost = oRows[row].getCells()[4].getText();
+			var allow = oRows[row].getCells()[5].getText();
 			var retailprice = oRows[row].getCells()[8].getItems()[0].getValue();
 			var calculated = ((parseFloat(retailprice, 2) - parseFloat(cost, 2)) / parseFloat(retailprice, 2)) * 100;
-			var finalcal = calculated.toFixed(2);
-			oTable.getRows()[row].getCells()[9].setText(finalcal);
-			oTable.getRows()[row].getCells()[10].setText(finalcal);
+			var gm = isNaN(calculated) ? 0 : calculated.toFixed(2);
+			calculated = ((parseFloat(retailprice, 2) - parseFloat(cost, 2) + parseFloat(allow, 2)) / parseFloat(retailprice, 2)) * 100;
+			var gmallow = isNaN(calculated) ? 0 : calculated.toFixed(2);
+			oTable.getRows()[row].getCells()[9].setText(gm);
+			oTable.getRows()[row].getCells()[10].setText(gmallow);
 
 			oTable.addSelectionInterval(row, row);
 		},
@@ -382,7 +391,7 @@ sap.ui.define([
 		onsave: function (oEvent) {
 			sap.ui.getCore().getMessageManager().removeAllMessages();
 			this.addMessageToTarget("", "", "SAP Promo document number 45889 created successfully!!", "Success",
-				"UPC: 7343500004 Material: 3162  Successfully posted",
+				"",
 				"S", "");
 
 			//this.addMessageToTarget("", "", "Please enter valid Price", "Error", "Please check the Price at Row 2", "E", "");

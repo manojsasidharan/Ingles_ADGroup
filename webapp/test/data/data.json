@@ -13,7 +13,7 @@
 		"Multiplier": "2",
 		"Lbl": " ",
 		"Color": "#40916C",
-		"Allowance" : "0.00"
+		"Allowance" : "0.22"
 	}, {
 		"LocationCode": "4452914108",
 		"Material": "14277",
@@ -43,7 +43,7 @@
 		"Multiplier": "1",
 		"Lbl": " ",
 		"Color": "#40916C",
-		"Allowance" : "0.00"
+		"Allowance" : "0.75"
 	}, {
 		"LocationCode": "2840001324",
 		"Material": "29920",

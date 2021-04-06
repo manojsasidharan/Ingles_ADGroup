@@ -41,7 +41,6 @@ sap.ui.define([
 			//	this.currentSupplier = oArguments.supplier;
 		},
 		onStateChanged: function (oEvent) {
-			debugger;
 			var bIsNavigationArrow = oEvent.getParameter("isNavigationArrow"),
 				sLayout = oEvent.getParameter("layout");
 			
@@ -66,6 +65,7 @@ sap.ui.define([
 		onExit: function () {
 			this.oRouter.detachRouteMatched(this.onRouteMatched, this);
 			this.oRouter.detachBeforeRouteMatched(this.onBeforeRouteMatched, this);
+			this.getView().byId("app").destroy();
 		}
 	});
 });

@@ -20,12 +20,13 @@
 				<fb:filterGroupItems groupTitle="Group1">
 					<fb:FilterGroupItem groupName="G1" name="A" label="Pricing Family" visibleInAdvancedArea="true">
 						<fb:control>
-							<MultiInput value="001 Ingles"/>
+							<MultiInput value=""/>
 						</fb:control>
 					</fb:FilterGroupItem>
 					<fb:FilterGroupItem groupName="G1" name="B" label="Vendor" visibleInAdvancedArea="true">
 						<fb:control>
-							<MultiInput id="vendor"/>
+							<MultiInput name="VendorInput" id="VendorInput" valueHelpRequest=".onVendorValueHelp"
+								tokenUpdate=".tokenUpdate($event, '/FilterInput/Vendor')"/>
 						</fb:control>
 					</fb:FilterGroupItem>
 				</fb:filterGroupItems>
@@ -45,23 +46,9 @@
 							<MultiInput/>
 						</fb:control>
 					</fb:FilterGroupItem>
-					<fb:FilterGroupItem groupName="G1" name="F" label="Price Family" visibleInAdvancedArea="true">
-						<fb:control>
-							<Select id="pricfam" forceSelection="false" selectedKey="2513">
-								<core:Item key="2513" text="2513 Citra Montepulciano"/>
-								<core:Item key="2514" text="2514 Blue Fish Pinot Grigio"/>
-								<core:Item key="2515" text="2515 Night Harvest Chardonnay"/>
-								<core:Item key="2516" text="2516 Night Harvest Chardonnay"/>
-								<core:Item key="2517" text="2517 Toasted Head Chardonnay"/>
-								<core:Item key="2518" text="2518 Clos Du Bois Cabernet Sauvigno"/>
-								<core:Item key="2519" text="2519 Casarsa Chardonnay"/>
-								<core:Item key="2520" text="2520 Hogue Sauv Blanc"/>
-							</Select>
-						</fb:control>
-					</fb:FilterGroupItem>
 					<fb:FilterGroupItem groupName="G1" name="G" label="Cost Family" visibleInAdvancedArea="true">
 						<fb:control>
-							<Select id="costfam" forceSelection="false" selectedKey="2513">
+							<Select id="costfam" forceSelection="false" selectedKey="">
 								<core:Item key="2513" text="2513 Citra Montepulciano"/>
 								<core:Item key="2514" text="2514 Blue Fish Pinot Grigio"/>
 								<core:Item key="2515" text="2515 Night Harvest Chardonnay"/>
@@ -88,7 +75,7 @@
 					<!--		<MultiInput/>-->
 					<!--	</fb:control>-->
 					<!--</fb:FilterGroupItem>-->
-					<fb:FilterGroupItem groupName="G2"  name="K" label="AD Group" visibleInAdvancedArea="true">
+					<fb:FilterGroupItem groupName="G2" name="K" label="AD Group" visibleInAdvancedArea="true">
 						<fb:control>
 							<Select id="Strategy" forceSelection="false" selectedKey="{query>/PriceStrategy}">
 								<core:Item key="01" text="01 Ingles Stores"/>
@@ -102,7 +89,7 @@
 							</Select>
 						</fb:control>
 					</fb:FilterGroupItem>
-					<fb:FilterGroupItem groupName="G2"  name="L" label="Price Level" visibleInAdvancedArea="true">
+					<fb:FilterGroupItem groupName="G2" name="L" label="Price Level" visibleInAdvancedArea="true">
 						<fb:control>
 							<Select forceSelection="false" selectedKey="01">
 								<core:Item key="00" text="Level 0 - Default"/>
@@ -112,7 +99,7 @@
 							</Select>
 						</fb:control>
 					</fb:FilterGroupItem>
-					<fb:FilterGroupItem groupName="G2"  name="M" label="Price Type" visibleInAdvancedArea="true">
+					<fb:FilterGroupItem groupName="G2" name="M" label="Price Type" visibleInAdvancedArea="true">
 						<fb:control>
 							<Select id="Type" forceSelection="false" selectedKey="{query>/PriceType}">
 								<core:Item key="01" text="01 - Regular"/>
@@ -122,12 +109,12 @@
 							</Select>
 						</fb:control>
 					</fb:FilterGroupItem>
-					<fb:FilterGroupItem groupName="G2"  name="N" label="Date From" visibleInAdvancedArea="true">
+					<fb:FilterGroupItem groupName="G2" name="N" label="Date From" visibleInAdvancedArea="true">
 						<fb:control>
-							<DatePicker value="02/17/2021" valueFormat="MM/dd/yyyy"></DatePicker>
+							<DatePicker value="{query>/FromDate}" valueFormat="MM/dd/yyyy"></DatePicker>
 						</fb:control>
 					</fb:FilterGroupItem>
-					<fb:FilterGroupItem groupName="G2"  name="O" label="Date To" visibleInAdvancedArea="true">
+					<fb:FilterGroupItem groupName="G2" name="O" label="Date To" visibleInAdvancedArea="true">
 						<fb:control>
 							<DatePicker value="12/31/9999" valueFormat="MM/dd/yyyy"></DatePicker>
 						</fb:control>

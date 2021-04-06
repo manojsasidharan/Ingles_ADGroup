@@ -6,8 +6,9 @@ sap.ui.define([
 	"sap/ui/model/Sorter",
 	"sap/m/MessageBox",
 	"sap/base/util/UriParameters",
-	"sap/m/Token"
-], function (JSONModel, Controller, Filter, FilterOperator, Sorter, MessageBox, UriParameters,Token) {
+	"sap/m/Token",
+	"com/ingles/retail_pricing/ad_group/AD_Group/controller/ValueHelper"
+], function (JSONModel, Controller, Filter, FilterOperator, Sorter, MessageBox, UriParameters,Token, ValueHelper) {
 	"use strict";
 
 	return Controller.extend("com.ingles.retail_pricing.ad_group.AD_Group.controller.Master", {
@@ -15,13 +16,16 @@ sap.ui.define([
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this._bDescendingSort = false;
 			this.oRouter.getRoute("notFound").attachPatternMatched(this._getQuery, this);
+			this._vendorValueHelp = new ValueHelper(this, 'VENDOR');
+			
+			
 		},
 		_getQuery: function (oEvent) {
 			
 			var oHashChanger = new sap.ui.core.routing.HashChanger();
 			var query = oHashChanger.getHash();
 			var value = this.getAllUrlParams(query);
-			this._oMultiInput = this.getView().byId("vendor");
+			this._oMultiInput = this.getView().byId("VendorInput");
 			this._oMultiInput.setTokens(this._getDefaultTokens());
 			if (value.pricestrategy !== undefined) {
 				this.getOwnerComponent().getModel("query").setProperty("/PriceStrategy", decodeURIComponent(value.pricestrategy));
@@ -37,6 +41,44 @@ sap.ui.define([
 			});
 			return [oToken1];
 		},
+		
+		tokenUpdate: function (oEvent, oPath) {
+			var sType = oEvent.getParameter("type"),
+				aAddedTokens = oEvent.getParameter("addedTokens"),
+				aRemovedTokens = oEvent.getParameter("removedTokens"),
+				oModel = this.getView().getModel("appControl"),
+				aContexts = oModel.getProperty(oPath);
+
+			switch (sType) {
+				// add new context to the data of the model, when new token is being added
+			case "added":
+				aAddedTokens.forEach(function (oToken) {
+					aContexts.push({
+						key: oToken.getKey(),
+						text: oToken.getKey()
+					});
+				});
+				break;
+				// remove contexts from the data of the model, when tokens are being removed
+			case "removed":
+				aRemovedTokens.forEach(function (oToken) {
+					aContexts = aContexts.filter(function (oContext) {
+						return oContext.key !== oToken.getKey();
+					});
+				});
+				break;
+			default:
+				break;
+			}
+
+			oModel.setProperty(oPath, aContexts);
+
+		},
+		
+		onVendorValueHelp: function (oEvent) {
+			this._vendorValueHelp.openValueHelp(oEvent);
+		},		
+		
 		onListItemPress: function (oEvent) {
 			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(1),
 				productPath = oEvent.getSource().getBindingContext("products").getPath(),
