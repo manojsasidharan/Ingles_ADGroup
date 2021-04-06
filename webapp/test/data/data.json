@@ -1,0 +1,89 @@
+{
+	"Data": [{
+		"LocationCode": "7343500004",
+		"Material": "3162",
+		"Vendor": "1001",
+		"Description": "KINGS HAWAIIAN ROLLS",
+		"valid_from": "5/2/2021",
+		"valid_to": "12/31/9999",
+		"Last_Cost": "2.25",
+		"Price": "7.00",
+		"Margin": "35.8",
+		"Unit_sell": "3.5",
+		"Multiplier": "2",
+		"Lbl": " ",
+		"Color": "#40916C",
+		"Allowance" : "0.00"
+	}, {
+		"LocationCode": "4452914108",
+		"Material": "14277",
+		"Vendor": "1001",
+		"Description": "MOE'S RSTD CORN POBLANO QUESO",
+		"valid_from": "5/2/2021",
+		"valid_to": "12/31/9999",
+		"Last_Cost": "4.70",
+		"Price": "9.59",
+		"Margin": "50.99",
+		"Unit_sell": "9.59",
+		"Multiplier": "1",
+		"Lbl": " ",
+		"Color": "#40916C",
+		"Allowance" : "0.00"
+	}, {
+		"LocationCode": "2840064308",
+		"Material": "28992",
+		"Vendor": "910009",
+		"Description": "STACYS ORGANIC GARLIC PITA CHI",
+		"valid_from": "5/2/2021",
+		"valid_to": "12/31/9999",
+		"Last_Cost": "2.90",
+		"Price": "6.49",
+		"Margin": "55.32",
+		"Unit_sell": "6.49",
+		"Multiplier": "1",
+		"Lbl": " ",
+		"Color": "#40916C",
+		"Allowance" : "0.00"
+	}, {
+		"LocationCode": "2840001324",
+		"Material": "29920",
+		"Vendor": "910010",
+		"Description": "STACYS 18OZ MULTIGRAIN PITA CH",
+		"valid_from": "5/2/2021",
+		"valid_to": "12/31/9999",
+		"Last_Cost": "3.85",
+		"Price": "10.00",
+		"Margin": "23.00",
+		"Unit_sell": "5",
+		"Multiplier": "2",
+		"Lbl": " ",
+		"Color": "#40916C",
+		"Allowance" : "0.00"
+	}, {
+		"LocationCode": "2840061139",
+		"Material": "28993",
+		"Vendor": "910012",
+		"Description": "STACYS ORGANIC PITA CHIPS",
+		"valid_from": "5/2/2021",
+		"valid_to": "12/31/9999",
+		"Last_Cost": "2.90",
+		"Price": "6.49",
+		"Margin": "55.32",
+		"Unit_sell": "6.49",
+		"Multiplier": "1",
+		"Lbl": " ",
+		"Color": "#40916C",
+		"Allowance" : "0.00"
+	}],
+	"items": [],
+	"uploadState": "Complete",
+	"markers": [{
+		"type": "Draft"
+	}],
+	"statuses": [{
+		"title": "Advanced",
+		"text": "Success",
+		"state": "Success",
+		"icon": "sap-icon://message-success"
+	}]
+}
