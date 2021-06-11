@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "com.ingles.retail_pricing.ad_group.AD_Group.view.",
+		viewNamespace: "Ingles.Mock.AD_Group.view.",
 		autoWait: true
 	});
 });

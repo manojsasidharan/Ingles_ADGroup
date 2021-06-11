@@ -18,7 +18,7 @@ sap.ui.define([
 	UploadCollectionParameter, MessageToast) {
 	"use strict";
 
-	return Controller.extend("com.ingles.retail_pricing.ad_group.AD_Group.controller.Detail", {
+	return Controller.extend("Ingles.Mock.AD_Group.controller.Detail", {
 		onInit: function () {
 
 			var oExitButton = this.getView().byId("exitFullScreenBtn"),
@@ -93,7 +93,7 @@ sap.ui.define([
 		},
 		onSync: function (oEvent) {
 			var conditionTable = this.getView().byId("Table");
-			var sPath = jQuery.sap.getModulePath("com.ingles.retail_pricing.ad_group.AD_Group", "/test/data/data.json");
+			var sPath = jQuery.sap.getModulePath("Ingles.Mock.AD_Group", "/test/data/data.json");
 			var attModel = new JSONModel(sPath);
 			attModel.setDefaultBindingMode("OneWay");
 			this.getView().setModel(attModel);
@@ -110,7 +110,7 @@ sap.ui.define([
 		_onProductMatched: function (oEvent) {
 			if (!this.getView().byId("Bsave").getVisible()) {
 				var conditionTable = this.getView().byId("Table");
-				var sPath = jQuery.sap.getModulePath("com.ingles.retail_pricing.ad_group.AD_Group", "/test/data/data.json");
+				var sPath = jQuery.sap.getModulePath("Ingles.Mock.AD_Group", "/test/data/data.json");
 				var attModel = new JSONModel(sPath);
 				// attModel.setDefaultBindingMode("OneWay");
 				this.getView().setModel(attModel);
@@ -354,7 +354,7 @@ sap.ui.define([
 
 		},
 		onAddRows: function (oEvent) {
-			this.addRowsDialog = sap.ui.xmlfragment("com.ingles.retail_pricing.ad_group.AD_Group.fragments.AddRows", this);
+			this.addRowsDialog = sap.ui.xmlfragment("Ingles.Mock.AD_Group.fragments.AddRows", this);
 
 			//this.getOwnerComponent().getModel("addrow").setData("");
 			this.addRowsDialog.setModel(this.getOwnerComponent().getModel("addrow"));
