@@ -7,11 +7,11 @@ sap.ui.define([
 	"sap/m/MessageBox",
 	"sap/base/util/UriParameters",
 	"sap/m/Token",
-	"com/ingles/retail_pricing/ad_group/AD_Group/controller/ValueHelper"
+	"Ingles/Mock/AD_Group/controller/ValueHelper"
 ], function (JSONModel, Controller, Filter, FilterOperator, Sorter, MessageBox, UriParameters,Token, ValueHelper) {
 	"use strict";
 
-	return Controller.extend("com.ingles.retail_pricing.ad_group.AD_Group.controller.Master", {
+	return Controller.extend("Ingles.Mock.AD_Group.controller.Master", {
 		onInit: function () {
 			this.oRouter = this.getOwnerComponent().getRouter();
 			this._bDescendingSort = false;

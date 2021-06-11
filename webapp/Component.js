@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/ingles/retail_pricing/ad_group/AD_Group/model/models",
+	"Ingles/Mock/AD_Group/model/models",
 	"sap/f/library",
 	"sap/f/FlexibleColumnLayoutSemanticHelper",
 	"sap/ui/model/json/JSONModel"
@@ -10,7 +10,7 @@ sap.ui.define([
 
 	var LayoutType = library.LayoutType;
 
-	var Component = UIComponent.extend("com.ingles.retail_pricing.ad_group.AD_Group.Component", {
+	var Component = UIComponent.extend("Ingles.Mock.AD_Group.Component", {
 
 		metadata: {
 			manifest: "json"
