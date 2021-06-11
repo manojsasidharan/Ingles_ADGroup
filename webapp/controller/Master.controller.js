@@ -26,7 +26,7 @@ sap.ui.define([
 			var query = oHashChanger.getHash();
 			var value = this.getAllUrlParams(query);
 			this._oMultiInput = this.getView().byId("VendorInput");
-			this._oMultiInput.setTokens(this._getDefaultTokens());
+			// this._oMultiInput.setTokens(this._getDefaultTokens());
 			if (value.pricestrategy !== undefined) {
 				this.getOwnerComponent().getModel("query").setProperty("/PriceStrategy", decodeURIComponent(value.pricestrategy));
 				this.getOwnerComponent().getModel("query").setProperty("/PriceType", decodeURIComponent(value.pricetype));

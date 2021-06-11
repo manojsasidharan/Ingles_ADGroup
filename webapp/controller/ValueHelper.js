@@ -26,18 +26,15 @@ sap.ui.define([
 			switch (srchHelpName) {
 			case "VENDOR":
 				this.config = {
-					cols: [{
+						cols: [{
 						label: "Vendor ID",
 						template: "vendor"
 					}, {
 						label: "Vendor Name",
 						template: "vendorName"
 					}, {
-						label: "Sales Person",
-						template: "salesPerson"
-					}, {
-						label: "Telephone",
-						template: "telephone"
+						label: "Vendor Type",
+						template: "vType"
 					}],
 					modelName: "MasterDataModel",
 					modelPath: "/vendors",

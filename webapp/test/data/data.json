@@ -1,35 +1,5 @@
 {
 	"Data": [{
-		"LocationCode": "7343500004",
-		"Material": "3162",
-		"Vendor": "1001",
-		"Description": "KINGS HAWAIIAN ROLLS",
-		"valid_from": "5/2/2021",
-		"valid_to": "12/31/9999",
-		"Last_Cost": "2.25",
-		"Price": "7.00",
-		"Margin": "35.8",
-		"Unit_sell": "3.5",
-		"Multiplier": "2",
-		"Lbl": " ",
-		"Color": "#40916C",
-		"Allowance" : "0.22"
-	}, {
-		"LocationCode": "4452914108",
-		"Material": "14277",
-		"Vendor": "1001",
-		"Description": "MOE'S RSTD CORN POBLANO QUESO",
-		"valid_from": "5/2/2021",
-		"valid_to": "12/31/9999",
-		"Last_Cost": "4.70",
-		"Price": "9.59",
-		"Margin": "50.99",
-		"Unit_sell": "9.59",
-		"Multiplier": "1",
-		"Lbl": " ",
-		"Color": "#40916C",
-		"Allowance" : "0.00"
-	}, {
 		"LocationCode": "2840064308",
 		"Material": "28992",
 		"Vendor": "910009",
